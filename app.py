@@ -1,12 +1,14 @@
 from flask import Flask,render_template,request
+from utils import apiReq
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    word = request.args.get('search')
-    return render_template("index.html",searchedWord=word)
+    query = request.args.get('query')
+    data = apiReq(query)
+    return render_template("index.html",data=data,arrayLen=len(data))
 
 @app.route('/<word>')
 def stringify(word):

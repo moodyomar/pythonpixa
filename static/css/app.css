@@ -4,24 +4,12 @@ padding: 0;
 box-sizing: border-box;
 
 }
-.navbar{
-background-color: #fff;
-}
-.logo{
-
-}
-.buttons{
-
-}
-.sign-in{
-
-}
-.register{
-
-}
-.container{
-
+.card:hover{
+transition: all .3s ease-in;
+transform: scale(1.04);
+cursor: pointer;
 }
 .card{
-
+transition: all .2s ease-out;
+transform: scale(1);
 }
