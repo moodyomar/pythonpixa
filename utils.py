@@ -4,14 +4,15 @@ from bs4 import BeautifulSoup
 api = {
     "key": "17357236-aeda27ac71ed0d74e165db2a8",
     "baseurl": "https://pixabay.com/api",
-    "q": ""
+    "query": "thailand beach"
     }
 
 url = "http://localhost:3000"
 
-def apiReq(query='thailand'):
-    api["q"] = query
-    url = f"{api['baseurl']}/?key={api['key']}&q={api['q']}"
+def apiReq(query):
+    print(f'utils query is: {query}')
+    print(f"utils api[q] is: {api['query']}")
+    url = f"{api['baseurl']}/?key={api['key']}&q={api['query']}"
     data = requests.get(url)
     return data.json()['hits']
 
