@@ -39,7 +39,6 @@ jobs:
 
     - name: Echo tag
       run: |
-        echo ${{previoustag}}
         echo ${{ steps.previoustag.outputs.tag }}
 
     - name: Increment Semantic Version
