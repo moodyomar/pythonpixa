@@ -32,7 +32,6 @@ jobs:
     - name: Create tag artifact
       env: 
         TAG_VAR: ${{ git describe --tags --abbrev=0 }}
-      uses: actions/upload-artifact@v2
       with:
         name: ${{github.ref_name}}
         path: Release
