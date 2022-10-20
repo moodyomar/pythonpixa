@@ -31,20 +31,21 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: Check tags
-      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-    - name: Test
-      run: |
-        echo $RELEASE_VERSION
-        echo ${{ env.RELEASE_VERSION }}
-        echo $(git describe --tags --abbrev=0)
+    - name: Get tag
+      id: tag
+      uses: dawidd6/action-get-tag@v1
+      with:
+        # Optionally strip `v` prefix
+        strip_v: true
+    - name: Use tag
+      run: echo ${{steps.tag.outputs.tag}}
 
 
     - name: Increment Semantic Version
       id: bump_version
       uses: christian-draeger/increment-semantic-version@1.0.2
       with:
-        current-version: '1.1.0'
+        current-version: '1.2.0'
         version-fragment: 'feature'
 
     - name: Build Docker Image
