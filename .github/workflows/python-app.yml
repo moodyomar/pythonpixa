@@ -35,7 +35,6 @@ jobs:
       id: bump_version
       uses: christian-draeger/increment-semantic-version@1.0.2
       with:
-        current-version: '1.0.0'
         version-fragment: 'feature'
 
     - name: Build Docker Image
