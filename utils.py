@@ -1,8 +1,9 @@
 import requests
+from creds import Apikey
 from bs4 import BeautifulSoup
 
 api = {
-    "key": "17357236-aeda27ac71ed0d74e165db2a8",
+    "key": Apikey,
     "baseurl": "https://pixabay.com/api",
     "query": "thailand beach"
     }
