@@ -46,7 +46,7 @@ jobs:
         docker build -t ${{secrets.DOCKERHUB_USERNAME}}/py-pixa-app:v${{ steps.bump_version.outputs.next-version }}  .
         docker run -d --name testing-webapp -p 80:3000 ${{secrets.DOCKERHUB_USERNAME}}/py-pixa-app:v${{ steps.bump_version.outputs.next-version }}
 
-    - name: Run Unit Tests
+    - name: Run Smoke Tests
       run: docker exec testing-webapp python3 -m unittest smokeTest
 
     - name: Login to DockerHub
